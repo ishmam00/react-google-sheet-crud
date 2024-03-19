@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const Add = () => {
   const history = useHistory();
   const [data, setData] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: '',
     date: new Date().toString(),
   });
 
@@ -17,24 +17,24 @@ const Add = () => {
     e.preventDefault();
     try {
       const res = await fetch(
-        "https://sheet.best/api/sheets/bff990d0-8ada-43e9-97eb-0ad668bb19ec",
+        'https://sheet.best/api/sheets/2a120a53-2f0f-445b-a255-741327ba1079',
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(data),
         }
       );
       if (res.ok) {
-        history.replace("/");
+        history.replace('/');
       }
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <form style={{ maxWidth: 500, margin: "auto" }} onSubmit={handleSubmit}>
+    <form style={{ maxWidth: 500, margin: 'auto' }} onSubmit={handleSubmit}>
       <h1 className="text-muted text-center">Add</h1>
       <div className="mb-3">
         <label htmlFor="name" className="form-label">

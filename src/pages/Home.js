@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
   const [data, setData] = useState();
@@ -7,7 +7,7 @@ const Home = () => {
   const getData = async () => {
     try {
       const res = await fetch(
-        "https://sheet.best/api/sheets/bff990d0-8ada-43e9-97eb-0ad668bb19ec?_format=index"
+        'https://sheet.best/api/sheets/2a120a53-2f0f-445b-a255-741327ba1079'
       );
       const data = await res.json();
       setData(Object.keys(data).map((key) => data[key]));
@@ -15,7 +15,7 @@ const Home = () => {
       console.log(error);
     }
   };
-
+  // console.log(data);
   useEffect(() => {
     getData();
   }, []);
@@ -23,9 +23,9 @@ const Home = () => {
   const handleDelete = async (rowIndex) => {
     try {
       const res = await fetch(
-        `https://sheet.best/api/sheets/bff990d0-8ada-43e9-97eb-0ad668bb19ec/${rowIndex}`,
+        `https://sheet.best/api/sheets/2a120a53-2f0f-445b-a255-741327ba1079/${rowIndex}`,
         {
-          method: "DELETE",
+          method: 'DELETE',
         }
       );
       if (res.ok) {
@@ -61,11 +61,11 @@ const Home = () => {
             <div className="accordion-body">
               <div className="d-flex justify-content-between align-items-center">
                 <span>
-                  <strong className="display-6">{item.name}</strong> ---{" "}
+                  <strong className="display-6">{item.name}</strong> ---{' '}
                   {item.email}
                 </span>
                 <span>
-                  <Link to={`/edit/${i}`} style={{ textDecoration: "none" }}>
+                  <Link to={`/edit/${i}`} style={{ textDecoration: 'none' }}>
                     Edit
                   </Link>
                   <button
