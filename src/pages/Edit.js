@@ -26,7 +26,7 @@ const Edit = () => {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   const handleChange = (e) =>
     setData({ ...data, [e.target.name]: e.target.value });
